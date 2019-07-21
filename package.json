@@ -1,0 +1,24 @@
+{
+  "name": "blog",
+  "version": "0.1.0",
+  "description": "This is my blog",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev .",
+    "build": "vuepress build . --dest dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/F-loat/f-loat.github.io.git"
+  },
+  "author": "F-loat <chaimaoyuan@foxmail.com>",
+  "license": "CC-BY-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/F-loat/f-loat.github.io/issues"
+  },
+  "homepage": "https://f-loat.github.io",
+  "devDependencies": {
+    "vuepress": "^1.0.2",
+    "vuepress-theme-meteorlxy": "^1.0.1"
+  }
+}
