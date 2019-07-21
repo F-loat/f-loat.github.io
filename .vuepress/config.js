@@ -5,6 +5,11 @@ module.exports = {
   // 网站描述
   description: 'This is my blog',
 
+  // 网站元信息
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+  ],
+
   // 网站语言
   locales: {
     '/': {
