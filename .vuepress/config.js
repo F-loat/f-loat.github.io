@@ -16,8 +16,15 @@ module.exports = {
       lang: 'zh-CN',
     },
   },
+  
+  // 插件
+  plugins: [
+    ['@vuepress/google-analytics', {
+      'ga': 'UA-98660473-2',
+    }],
+  ],
 
-  // 使用的主题
+  // 主题
   theme: 'meteorlxy',
 
   // 主题配置
