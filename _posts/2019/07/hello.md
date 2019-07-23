@@ -1,7 +1,7 @@
 ---
-category: hello
+category: Hello
 tags:
-  - others
+  - 其他
 date: 2019-07-21
 title: Hello, World!
 vssue-title: Hello, World!
