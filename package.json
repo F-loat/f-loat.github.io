@@ -18,7 +18,7 @@
   },
   "homepage": "https://f-loat.github.io",
   "devDependencies": {
-    "vuepress": "^1.0.2",
-    "vuepress-theme-meteorlxy": "^1.0.1"
+    "vuepress": "^1.0.3",
+    "vuepress-theme-meteorlxy": "^1.2.0"
   }
 }
