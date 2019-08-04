@@ -1,7 +1,8 @@
 ---
-category: 小程序
+category: 文章
 tags:
   - 前端
+  - 小程序
 date: 2018-03-26
 title: MPVue 小程序转 Web 实践总结
 ---
