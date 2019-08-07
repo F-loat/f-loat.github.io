@@ -483,13 +483,9 @@ module.exports = (api, options) => {
 
 ### Plugins
 
-* CopyWebpackPlugin
+* CopyWebpackPlugin 复制 static 文件夹到输出目录
 
-复制 static 文件夹到输出目录
-
-* DefinePlugin
-
-定义客户端侧全局常量 `process.env.UNI_ENV`
+* DefinePlugin 定义客户端侧全局常量 `process.env.UNI_ENV`
 
 ``` js
 // @dcloudio/vue-cli-plugin-uni/index.js
