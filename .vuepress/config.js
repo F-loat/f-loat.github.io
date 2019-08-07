@@ -117,6 +117,8 @@ module.exports = {
     nav: [
       { text: '首页', link: '/', exact: true },
       { text: '文章', link: '/posts/', exact: false },
+      { text: '关于', link: '/about/', exact: false },
+      { text: 'GitHub', link: 'https://github.com/F-loat/f-loat.github.io' },
     ],
 
     // 评论配置
