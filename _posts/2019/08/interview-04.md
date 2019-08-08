@@ -110,19 +110,95 @@ var b = 10;
 
 ## 36. [使用迭代的方式实现 flatten 函数](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/54)
 
-
+``` js
+function flatten(arr) {
+  let arrs = [...arr]
+  let newArr = []
+  while (arrs.length) {
+    let item = arrs.shift()
+    if(Array.isArray(item)) {
+      // 将数组 item 的每一项放入 arrs 中
+      arrs.unshift(...item)
+    } else {
+      newArr.push(item)
+    }
+  }
+  return newArr
+}
+```
 
 ## 37. [为什么 Vuex 的 mutation 和 Redux 的 reducer 中不能做异步操作](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/65)
 
+* 不利于 devtools 对状态的改变进行跟踪
 
+* reducer 是用来计算 state 的，所以它的返回值必须是 state
+
+``` js
+currentState = currentReducer(currentState, action)
+```
 
 ## 38. [（京东）下面代码中 a 在什么情况下会打印 1](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/57)
 
+``` js
+var a = '?'
+if (a == 1 && a == 2 && a == 3) {
+ 	conso.log(1)
+}
+```
 
+* 隐式转换
+
+``` js
+// toString
+let a = {
+  i: 1,
+  toString () {
+    return a.i++
+  }
+}
+
+// valueOf
+let a = {
+  i: 1,
+  valueOf () {
+    return a.i++
+  }
+}
+```
 
 ## 39. [介绍下 BFC 及其应用](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/59)
 
+[BFC](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context) (块级格式上下文)，是页面盒模型布局中的一种 CSS 渲染模式，相当于一个独立的容器，里面的元素和外部的元素相互不影响，主要作用如下
 
+* 清除浮动
+* 防止同一 BFC 容器中的相邻元素间的外边距重叠问题
 
 ## 40. [在 Vue 中，子组件为何不可以修改父组件传递的 Prop](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/60)
 
+* 单向数据流，易于监测数据的流动，出现了错误可以更加迅速的定位到错误发生的位置
+
+* 在组件 initProps 时，会对 props 进行 defineReactive 操作，传入的第四个参数是自定义的 set 函数，该函数会在触发 props 的 set 方法时执行，当 props 修改了，就会运行这里传入的第四个参数，然后进行判断，如果不是 root 根组件，并且不是更新子组件，那么说明更新的是 props，给出警告
+
+``` js
+if (process.env.NODE_ENV !== 'production') {
+  const hyphenatedKey = hyphenate(key)
+  if (isReservedAttribute(hyphenatedKey) ||
+      config.isReservedAttr(hyphenatedKey)) {
+    warn(
+      ("\"" + hyphenatedKey + "\" is a reserved attribute and cannot be used as component prop."),
+      vm
+    )
+  }
+  defineReactive$$1(props, key, value, function () {
+    if (!isRoot && !isUpdatingChildComponent) {
+      warn(
+        "Avoid mutating a prop directly since the value will be " +
+        "overwritten whenever the parent component re-renders. " +
+        "Instead, use a data or computed property based on the prop's " +
+        "value. Prop being mutated: \"" + key + "\"",
+        vm
+      )
+    }
+  })
+}
+```
